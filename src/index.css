@@ -1,0 +1,111 @@
+/* Ensure Tailwind layers come first */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component layer */
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+/* Root variables */
+:root {
+  --rp-font: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --base-font-family: "Poppins", Helvetica;
+  --base-font-size: 16px;
+  --base-font-style: normal;
+  --base-font-weight: 400;
+  --base-letter-spacing: 0px;
+}
+
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonts now loaded in index.html */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Utility for rupee glyphs */
+.font-rupee {
+  font-family: 'Noto Sans Symbols', sans-serif;
+}
+
+/* RAPS-style custom slick dots */
+.slick-dots li button:before {
+  color: #e87d0e !important; /* RAPS orange */
+  font-size: 10px;
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+/* Inset shadow utility */
+.inset-shadow {
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button */
+.custom-button {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FA9021;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px; /* Fully rounded */
+  font-size: 1.1rem; /* Slightly smaller text */
+  font-weight: 600; /* Balanced boldness */
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 10px rgba(250, 144, 33, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+/* Classy Inner Glow Effect */
+.custom-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 15px rgba(250, 144, 33, 0.3);
+}
+
+.custom-button:hover::before {
+  opacity: 1;
+}
+
+.custom-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 8px rgba(250, 144, 33, 0.2);
+}
+
+/* Global styles for hover effect */
+.table-hover {
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transition for both transform and shadow */
+}
+
+.table-hover:hover {
+  transform: scale(1.05); /* Slight scaling effect */
+  box-shadow: 0 4px 10px rgba(250, 144, 33, 0.2); /* Subtle shadow effect */
+}
